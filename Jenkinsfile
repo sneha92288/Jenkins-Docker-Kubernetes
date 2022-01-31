@@ -45,7 +45,7 @@ pipeline {
 			    script {
 				    echo "Push Docker Image"
 				    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-            				sh "docker login -u ameintu -p ${dockerhub}"
+            				sh "docker login -u sneha92288 -p ${dockerhub}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
 				    
@@ -53,7 +53,7 @@ pipeline {
 		    }
 	    }
 	    
-	    stage('Deploy to K8s') {
+	    stage('Deploy to k8s') {
 		    steps{
 			    echo "Deployment started ..."
 			    sh 'ls -ltr'
